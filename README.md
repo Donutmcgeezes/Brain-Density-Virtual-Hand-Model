@@ -12,7 +12,11 @@ PCA was implemented on the sEMG data, with the first 3 PCA components accounting
 
 # 3D Motion Capture
 A camera system was made to synchronise the recordings from 3 cameras placed at different angles to face the same point. A ChArUco board was used to make calibration recordings with the camera system. This was for intrinsic and extrinsic calibration.
-3 cameras recorded footage of the ASL letters A-E hand motion. Footage from each camera was labelled with 20 key hand nodes using the SLEAP framework. By using the sleap-anipose python package, we calibrated our cameras with the 'calibrate' method which generated a toml file containing the intrinsic (Camera Matrix) and extrinsic parameters (Rotation Matrix & Translation Vector) of each camera. By exporting the 2D coordinates of each hand node for each camera from SLEAP, we triangulated each node in 3D space as shown in the video above.
+3 cameras recorded synchronised footage of the ASL letters A-E hand motion. Footage from each camera was labelled with 20 key hand nodes using the SLEAP framework. By using the sleap-anipose python package, we calibrated our cameras with the 'calibrate' method which generated a toml file containing the intrinsic (Camera Matrix) and extrinsic parameters (Rotation Matrix & Translation Vector) of each camera. By exporting the 2D coordinates of each hand node for each camera from SLEAP, we triangulated each node in 3D space as shown in the video above.
+
+Note: 3D Motion Capture was synchronised with sEMG data collection with an Arduino trigger.
 
 # Decoding with LSTM Neural Network
-Labelling data: With the 
+Labelling data: Sampling frequency for sEMG (2048Hz) was different to the motion capture rate (~25Hz). We used this mismatch to allow a temporal sequence of sEMG data to correspond to a specific change in 3D coordinates. First, with 3D data with N frames, we take the difference between 2 consecutive frames, leaving N-1 datapoints of the frame to frame change in 3D coordinates. Secondly, we separate the sEMG signal into N-1 chunks and label each chunk with the corresponding change. 
+
+Building the LSTM Neural Network: We utilised PyTorch to build 2 LSTM models with 2 hidden layers and 60 output layers. For raw sEMG signals, we used 64 input layer nodes while with 3 PCA components we used 3 input nodes. The 3D motion data was used as reference values to compute the loss function.
