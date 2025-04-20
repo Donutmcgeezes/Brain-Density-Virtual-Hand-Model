@@ -6,3 +6,13 @@ This project aims to, 1. Collect sEMG signals with the Quattrocento amplificatio
 
 https://github.com/user-attachments/assets/ae0c59ec-6c00-4016-9be2-546444edf4b8
 
+# sEMG Data
+64 channel sEMG signals were collected with a high density 64 channel electrode connected to a Quattrocento amplification and filtering (10-500Hz) device. The electrode was placed on the right hand, Flexor Carpi Ulnaris, and ASL letters A-E hand motion was used to generate the sEMG signals. OT Biolab+ was the software used to record and save the sEMG signals. The signal was exported as a csv file for labelling. The first column was Time while the next 64 columns correspond to each channel of the electrode.
+PCA was implemented on the sEMG data, with the first 3 PCA components accounting for 80-95% of the variance in our data. The values of the 3 components could be added as 3 new columns to the exported sEMG data.
+
+# 3D Motion Capture
+A camera system was made to synchronise the recordings from 3 cameras placed at different angles to face the same point. A ChArUco board was used to make calibration recordings with the camera system. This was for intrinsic and extrinsic calibration.
+3 cameras recorded footage of the ASL letters A-E hand motion. Footage from each camera was labelled with 20 key hand nodes using the SLEAP framework. By using the sleap-anipose python package, we calibrated our cameras with the 'calibrate' method which generated a toml file containing the intrinsic (Camera Matrix) and extrinsic parameters (Rotation Matrix & Translation Vector) of each camera. By exporting the 2D coordinates of each hand node for each camera from SLEAP, we triangulated each node in 3D space as shown in the video above.
+
+# Decoding with LSTM Neural Network
+Labelling data: With the 
