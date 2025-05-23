@@ -6,6 +6,11 @@ This project aims to, 1. Collect sEMG signals with the Quattrocento amplificatio
 
 https://github.com/user-attachments/assets/ae0c59ec-6c00-4016-9be2-546444edf4b8
 
+
+https://github.com/user-attachments/assets/2e2fc6a7-c7fd-4189-88f1-1fbb4ef6ed6f
+
+
+
 # sEMG Data
 64 channel sEMG signals were collected with a high density 64 channel electrode connected to a Quattrocento amplification and filtering (10-500Hz) device. The electrode was placed on the right hand, Flexor Carpi Ulnaris, and ASL letters A-E hand motion was used to generate the sEMG signals. OT Biolab+ was the software used to record and save the sEMG signals. The signal was exported as a csv file for labelling. The first column was Time while the next 64 columns correspond to each channel of the electrode.
 PCA was implemented on the sEMG data, with the first 3 PCA components accounting for 80-95% of the variance in our data. The values of the 3 components could be added as 3 new columns to the exported sEMG data.
