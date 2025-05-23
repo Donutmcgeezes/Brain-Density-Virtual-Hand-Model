@@ -3,13 +3,7 @@
 # Overview
 This project aims to, 1. Collect sEMG signals with the Quattrocento amplification and filtering device 2. Record camera footage of hand motion from multiple angle to be processed into a 3D reconstruction of a virtual hand 3. Map the sEMG signals to the 3D hand motion data with a Neural Network
 
-
-https://github.com/user-attachments/assets/ae0c59ec-6c00-4016-9be2-546444edf4b8
-
-
 https://github.com/user-attachments/assets/2e2fc6a7-c7fd-4189-88f1-1fbb4ef6ed6f
-
-
 
 # sEMG Data
 64 channel sEMG signals were collected with a high density 64 channel electrode connected to a Quattrocento amplification and filtering (10-500Hz) device. The electrode was placed on the right hand, Flexor Carpi Ulnaris, and ASL letters A-E hand motion was used to generate the sEMG signals. OT Biolab+ was the software used to record and save the sEMG signals. The signal was exported as a csv file for labelling. The first column was Time while the next 64 columns correspond to each channel of the electrode.
